@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AskeriDisiplin" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/olive</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/olive_light</item>
+        <item name="colorSurface">@color/card</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+    </style>
+
+    <style name="Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:background">@drawable/bg_card</item>
+    </style>
+
+    <style name="CardTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:textColor">@color/olive_light</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Hint">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/text_dim</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/text_dim</item>
+        <item name="android:inputType">text</item>
+        <item name="android:importantForAutofill">no</item>
+    </style>
+
+    <style name="Btn" parent="Widget.Material3.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="backgroundTint">@color/olive</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">6dp</item>
+    </style>
+
+    <style name="BtnOutline" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textColor">@color/olive_light</item>
+        <item name="strokeColor">@color/olive</item>
+        <item name="cornerRadius">6dp</item>
+    </style>
+
+    <style name="BtnAlarm" parent="Widget.Material3.Button">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="backgroundTint">@color/alarm_red</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="cornerRadius">6dp</item>
+    </style>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0E140B</color>
+    <color name="card">#1A2414</color>
+    <color name="card_stroke">#2F3D22</color>
+    <color name="olive">#6B8E23</color>
+    <color name="olive_light">#9BB34A</color>
+    <color name="text_dim">#A9B39A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="alarm_bg">#160404</color>
+    <color name="alarm_red">#FF3B30</color>
+</resources>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alarm_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="⚠ KALK ASKER ⚠"
+        android:textColor="@color/alarm_red"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvClock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="05:00:00"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvStage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:textColor="@color/olive_light"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- GÖREV 1: KAMERA -->
+    <FrameLayout
+        android:id="@+id/cameraSection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_card">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/progressVerify"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvCameraStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:minLines="2"
+        android:text="Kamera açılıyor..."
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnCapture"
+        style="@style/BtnAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="FOTOĞRAF ÇEK VE DOĞRULA" />
+
+    <!-- GÖREV 2: MATEMATİK -->
+    <LinearLayout
+        android:id="@+id/mathSection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvMathProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doğru: 0 / 3"
+            android:textColor="@color/olive_light"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="47 × 3 − 15 = ?"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAnswer"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:hint="Cevap"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned"
+            android:textColor="@color/white"
+            android:textColorHint="@color/text_dim"
+            android:textSize="32sp" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            style="@style/BtnAlarm"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:text="CEVAPLA" />
+
+        <TextView
+            android:id="@+id/tvMathFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

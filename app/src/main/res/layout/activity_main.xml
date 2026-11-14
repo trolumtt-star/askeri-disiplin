@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ASKERİ DİSİPLİN"
+            android:textColor="@color/olive_light"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Alarm • İbadet • Öğün • Antrenman"
+            android:textColor="@color/text_dim" />
+
+        <!-- 1. ALARM -->
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/CardTitle" android:text="1 · KAÇIŞSIZ ALARM" />
+            <TextView
+                android:id="@+id/tvAlarmTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="05:00"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/swAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Her gün çalsın (erteleme yok)"
+                android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnPickAlarm"
+                    style="@style/Btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="SAAT SEÇ" />
+                <Button
+                    android:id="@+id/btnTestAlarm"
+                    style="@style/BtnOutline"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="1 DK SONRA TEST" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2. NESNE -->
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/CardTitle" android:text="2 · DOĞRULAMA NESNESİ" />
+            <TextView
+                style="@style/Hint"
+                android:text="Alarmı kapatmak için fotoğrafı çekilecek nesne (ör: çaydanlık, diş fırçası). Yatak odasından uzakta bir şey seç." />
+            <EditText
+                android:id="@+id/etTargetObject"
+                style="@style/Input"
+                android:hint="Nesne adı (Türkçe)" />
+            <EditText
+                android:id="@+id/etTargetLabels"
+                style="@style/Input"
+                android:hint="Çevrimdışı bot için İngilizce etiket: kettle, teapot" />
+            <Button
+                android:id="@+id/btnRefPhoto"
+                style="@style/Btn"
+                android:layout_width="match_parent"
+                android:text="REFERANS FOTOĞRAF ÇEK" />
+            <ImageView
+                android:id="@+id/ivReference"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="Referans fotoğraf"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 3. YEMEK PROGRAMI -->
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/CardTitle" android:text="3 · YEMEK PROGRAMI (GÖRSEL)" />
+            <TextView
+                style="@style/Hint"
+                android:text="Diyet/yemek programının fotoğrafını veya ekran görüntüsünü yükle. Her sabah bugünün öğünü okunur ve adım adım tarif verilir." />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnMealPlan"
+                    style="@style/Btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="GÖRSEL SEÇ" />
+                <Button
+                    android:id="@+id/btnPreviewRecipe"
+                    style="@style/BtnOutline"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="BUGÜNÜN TARİFİ" />
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/ivMealPlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="320dp"
+                android:contentDescription="Yemek programı"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tvRecipePreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:textIsSelectable="true" />
+        </LinearLayout>
+
+        <!-- 4. ANTRENMAN -->
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/CardTitle" android:text="4 · ODAK VE ANTRENMAN KİLİDİ" />
+            <TextView
+                style="@style/Hint"
+                android:text="Bu saatte (ibadet ve öğün bittiyse) 15 dk karın seti tam ekran kilit olarak açılır. Çıkış: 2 dk basılı tutulan acil buton." />
+            <TextView
+                android:id="@+id/tvWorkoutTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07:00"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/swWorkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Antrenman kilidi aktif"
+                android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnPickWorkout"
+                    style="@style/Btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="SAAT SEÇ" />
+                <Button
+                    android:id="@+id/btnTestWorkout"
+                    style="@style/BtnOutline"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="ŞİMDİ BAŞLAT" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 5. GEMINI -->
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/CardTitle" android:text="5 · GOOGLE GEMINI (ÜCRETSİZ)" />
+            <TextView
+                style="@style/Hint"
+                android:text="aistudio.google.com/apikey adresinden ücretsiz anahtar al. Uygulama erişebildiğin tüm ücretsiz modelleri bulur; günlük hakkı en uzun olandan başlar, biri dolunca sıradakine geçer. Hepsi dolarsa çevrimdışı bot devreye girer." />
+            <EditText
+                android:id="@+id/etApiKey"
+                style="@style/Input"
+                android:hint="Gemini API anahtarı"
+                android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/etModels"
+                style="@style/Input"
+                android:hint="(İsteğe bağlı) kendi model sıran, virgülle" />
+            <Button
+                android:id="@+id/btnTestModels"
+                style="@style/BtnOutline"
+                android:layout_width="match_parent"
+                android:text="MODEL SIRASINI GÖSTER" />
+            <TextView
+                android:id="@+id/tvModelStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 6. İZİNLER -->
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/CardTitle" android:text="6 · İZİNLER (HEPSİ ✔ OLMALI)" />
+            <TextView
+                android:id="@+id/tvPermStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/white" />
+            <Button android:id="@+id/btnPermBasic" style="@style/BtnOutline" android:layout_width="match_parent" android:text="KAMERA + BİLDİRİM" />
+            <Button android:id="@+id/btnPermOverlay" style="@style/BtnOutline" android:layout_width="match_parent" android:text="ÜSTTE GÖSTERME (OVERLAY)" />
+            <Button android:id="@+id/btnPermExact" style="@style/BtnOutline" android:layout_width="match_parent" android:text="TAM ZAMANLI ALARM" />
+            <Button android:id="@+id/btnPermFullScreen" style="@style/BtnOutline" android:layout_width="match_parent" android:text="TAM EKRAN BİLDİRİM" />
+            <Button android:id="@+id/btnPermBattery" style="@style/BtnOutline" android:layout_width="match_parent" android:text="PİL OPTİMİZASYONUNU KAPAT" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            style="@style/Btn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:text="KAYDET VE KUR"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnRoutine"
+            style="@style/BtnOutline"
+            android:layout_width="match_parent"
+            android:text="SABAH RUTİNİNİ AÇ / DEVAM ET" />
+    </LinearLayout>
+</ScrollView>
