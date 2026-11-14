@@ -46,7 +46,7 @@ class Prefs(context: Context) {
         set(v) = sp.edit().putString("target_object", v).apply()
     /** Çevrimdışı ML Kit için İngilizce etiketler (virgüllü) */
     var targetLabels: String
-        get() = sp.getString("target_labels", "kettle, teapot") ?: ""
+        get() = sp.getString("target_labels", "") ?: ""
         set(v) = sp.edit().putString("target_labels", v).apply()
     var referencePhotoPath: String?
         get() = sp.getString("ref_photo", null)

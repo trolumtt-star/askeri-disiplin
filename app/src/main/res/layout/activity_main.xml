@@ -77,7 +77,7 @@
             <EditText
                 android:id="@+id/etTargetLabels"
                 style="@style/Input"
-                android:hint="Çevrimdışı bot için İngilizce etiket: kettle, teapot" />
+                android:hint="(İsteğe bağlı) ek etiketler — boş bırakabilirsin" />
             <Button
                 android:id="@+id/btnRefPhoto"
                 style="@style/Btn"

@@ -113,8 +113,14 @@ class AlarmActivity : AppCompatActivity() {
 
         btnCapture.setOnClickListener { capture() }
         btnSubmit.setOnClickListener { submitAnswer() }
-        etAnswer.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) { submitAnswer(); true } else false
+        // Bazı klavyeler "Bitti" yerine Enter gönderir: hepsini kabul et
+        etAnswer.setOnEditorActionListener { _, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL ||
+                event?.keyCode == KeyEvent.KEYCODE_ENTER
+            ) {
+                if (event == null || event.action == KeyEvent.ACTION_DOWN) submitAnswer()
+                true
+            } else false
         }
         render()
     }
@@ -272,14 +278,18 @@ class AlarmActivity : AppCompatActivity() {
 
     private fun submitAnswer() {
         val q = current ?: return
-        val value = etAnswer.text.toString().trim().toIntOrNull()
-        if (value == null) { flash("Bir sayı yaz"); return }
+        // Sadece rakamları al: boşluk, nokta, klavyenin eklediği görünmez karakterler vs. sorun çıkarmasın.
+        // Her türlü klavye rakamı (Arapça-Hint rakamları dahil) desteklenir.
+        val digits = etAnswer.text.toString().filter { it.isDigit() }
+        if (digits.isEmpty()) { flash("Bir sayı yaz"); return }
+        val value = digits.fold(0L) { acc, ch -> acc * 10 + Character.getNumericValue(ch) }
+            .coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
         if (value == q.answer) {
             p.mathSolved = p.mathSolved + 1
             tvMathFeedback.text = "✔ Doğru!"
             if (p.mathSolved >= requiredMath()) finishAlarm() else nextQuestion()
         } else {
-            tvMathFeedback.text = "✘ Yanlış! Yeni soru geldi. Uyan."
+            tvMathFeedback.text = "✘ Yanlış. ${q.text} = ${q.answer} olacaktı.\n(Sen $value yazdın) Yeni soru geldi."
             nextQuestion()
         }
     }
